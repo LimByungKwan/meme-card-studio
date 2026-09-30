@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="이미지와 한글 문구를 조합해 밈·카드·SNS 이미지를 만들고 PNG/JPEG로 내려받는 무로그인 공개 편집기" />
+  <title>짤·카드 스튜디오</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero__inner">
+      <div>
+        <p class="eyebrow">T03 · Meme & Card Studio</p>
+        <h1>짤·카드 스튜디오</h1>
+        <p>이미지와 문구를 조합하고, 미리보기와 같은 결과를 PNG/JPEG로 저장하세요.</p>
+      </div>
+      <span class="privacy-badge">로그인 없음 · 서버 업로드 없음</span>
+    </div>
+  </header>
+
+  <main class="app-layout">
+    <section class="editor panel" aria-labelledby="editor-title">
+      <div class="section-heading">
+        <div>
+          <span class="step-pill">EDIT</span>
+          <h2 id="editor-title">편집 도구</h2>
+        </div>
+        <button id="resetBtn" class="button button--ghost" type="button">편집 초기화</button>
+      </div>
+
+      <article class="tool-card">
+        <h3>1. 이미지</h3>
+        <label class="label" for="imageInput">PNG 또는 JPEG 불러오기</label>
+        <input id="imageInput" class="file-input" type="file" accept="image/png,image/jpeg,.png,.jpg,.jpeg" />
+        <p class="hint">파일은 브라우저 안에서만 처리됩니다. 지원하지 않는 파일을 선택해도 현재 작업은 유지됩니다.</p>
+        <div id="imageInfo" class="info-chip">현재 이미지: 없음</div>
+      </article>
+
+      <article class="tool-card">
+        <h3>2. 문구</h3>
+        <label class="label" for="captionInput">한글·영문·이모지 문구</label>
+        <textarea id="captionInput" rows="5" maxlength="2000">오늘의 한 장면
+짤·카드 스튜디오</textarea>
+
+        <div class="slider-block">
+          <div class="slider-label"><label for="textX">가로 위치</label><output id="textXValue">50%</output></div>
+          <input id="textX" type="range" min="0" max="100" value="50" />
+        </div>
+
+        <div class="slider-block">
+          <div class="slider-label"><label for="textY">세로 위치</label><output id="textYValue">12%</output></div>
+          <input id="textY" type="range" min="0" max="100" value="12" />
+        </div>
+
+        <div class="slider-block">
+          <div class="slider-label"><label for="fontSize">글자 크기</label><output id="fontSizeValue">60px</output></div>
+          <input id="fontSize" type="range" min="16" max="140" value="60" />
+        </div>
+
+        <div class="two-columns">
+          <div>
+            <label class="label" for="textColor">글자 색</label>
+            <input id="textColor" class="color-input" type="color" value="#ffffff" />
+          </div>
+          <div>
+            <label class="label" for="textAlign">정렬</label>
+            <select id="textAlign">
+              <option value="left">왼쪽</option>
+              <option value="center" selected>가운데</option>
+              <option value="right">오른쪽</option>
+            </select>
+          </div>
+        </div>
+      </article>
+
+      <article class="tool-card">
+        <h3>3. 화면비</h3>
+        <div class="ratio-group" role="group" aria-label="화면비 선택">
+          <button class="ratio-button is-active" type="button" data-ratio="1:1">1:1 <small>정사각</small></button>
+          <button class="ratio-button" type="button" data-ratio="4:5">4:5 <small>피드</small></button>
+          <button class="ratio-button" type="button" data-ratio="9:16">9:16 <small>스토리</small></button>
+        </div>
+      </article>
+
+      <article class="tool-card">
+        <h3>4. 완성 이미지</h3>
+        <div class="action-row">
+          <button id="downloadPngBtn" class="button" type="button">PNG 다운로드</button>
+          <button id="downloadJpegBtn" class="button button--secondary" type="button">JPEG 다운로드</button>
+        </div>
+        <p class="hint">업로드 원본을 그대로 복사하지 않고 Canvas에서 새 파일로 생성하므로 EXIF/GPS 같은 원본 위치 메타데이터를 이어받지 않습니다.</p>
+      </article>
+
+      <article class="tool-card">
+        <div class="card-heading-row">
+          <h3>5. 사용자 템플릿</h3>
+          <span id="templateCount" class="count-badge">0개</span>
+        </div>
+        <label class="label" for="templateName">템플릿 이름</label>
+        <input id="templateName" type="text" maxlength="120" placeholder="예: 발표 카드 1:1" />
+        <div class="action-row">
+          <button id="saveTemplateBtn" class="button" type="button">새 템플릿 저장</button>
+          <button id="updateTemplateBtn" class="button button--secondary" type="button">선택 템플릿 수정</button>
+        </div>
+        <p id="templateStatus" class="hint">선택된 템플릿: 없음</p>
+        <ul id="templateList" class="template-list" aria-live="polite"></ul>
+      </article>
+
+      <article class="tool-card">
+        <h3>6. JSON 옮겨 쓰기</h3>
+        <div class="action-row">
+          <button id="exportJsonBtn" class="button" type="button">JSON 내보내기</button>
+          <button id="importJsonBtn" class="button button--secondary" type="button">JSON 가져오기</button>
+          <input id="jsonFileInput" type="file" accept=".json,application/json" hidden />
+        </div>
+        <p class="hint">가져오기는 전체 검증을 통과한 뒤에만 저장합니다. 손상·필수 누락 JSON은 기존 목록을 바꾸지 않습니다.</p>
+      </article>
+
+      <article class="tool-card">
+        <h3>7. 이미지 사용 기록</h3>
+        <div class="radio-row">
+          <label><input type="radio" name="sourceType" value="own" checked /> 직접 제작·촬영</label>
+          <label><input type="radio" name="sourceType" value="external" /> 외부 이미지</label>
+        </div>
+        <div id="externalSourceFields" class="external-fields" hidden>
+          <label class="label" for="sourceUrl">원본 출처 URL</label>
+          <input id="sourceUrl" type="url" maxlength="500" placeholder="https://..." />
+          <label class="label" for="licenseText">사용 허가 근거</label>
+          <input id="licenseText" type="text" maxlength="300" placeholder="라이선스명 · 이용약관 · 수업 제공 표기" />
+        </div>
+      </article>
+
+      <article class="status-card" aria-live="polite">
+        <strong>상태</strong>
+        <p id="statusMessage" class="status status--info">준비되었습니다. PNG/JPEG 이미지를 불러와 편집을 시작하세요.</p>
+      </article>
+    </section>
+
+    <section class="preview panel" aria-labelledby="preview-title">
+      <div class="section-heading preview-heading">
+        <div>
+          <span class="step-pill">PREVIEW</span>
+          <h2 id="preview-title">실시간 미리보기</h2>
+        </div>
+        <div class="preview-meta">
+          <span id="ratioInfo">1:1</span>
+          <span id="canvasInfo">1080 × 1080</span>
+        </div>
+      </div>
+
+      <div id="canvasStage" class="canvas-stage" data-ratio="1:1">
+        <canvas id="previewCanvas" width="1080" height="1080" aria-label="완성 이미지 미리보기"></canvas>
+      </div>
+
+      <div class="preview-footnote">
+        <strong>화면 = 파일</strong>
+        <span>이 미리보기에 사용한 같은 Canvas를 PNG/JPEG로 저장합니다.</span>
+      </div>
+
+      <div class="safety-grid">
+        <div><strong>이미지</strong><span>PNG · JPEG</span></div>
+        <div><strong>비율</strong><span>1:1 · 4:5 · 9:16</span></div>
+        <div><strong>저장</strong><span>PNG · JPEG</span></div>
+        <div><strong>데이터</strong><span>브라우저 로컬 저장</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>짤·카드 스튜디오 · 모든 편집은 사용자의 브라우저에서 처리됩니다.</p>
+  </footer>
+</body>
+</html>

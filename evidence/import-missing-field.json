@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "app": "meme-card-studio",
+  "templates": [
+    {
+      "id": "missing-field",
+      "name": "필수값 누락",
+      "ratio": "1:1",
+      "text": "textX가 없습니다",
+      "textY": 20,
+      "fontSize": 60,
+      "textColor": "#ffffff",
+      "textAlign": "center",
+      "sourceType": "own"
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "generated_at": "2026-09-30T07:58:09+0000",
+  "passed": 40,
+  "failed": 0,
+  "results": [
+    {
+      "name": "첫 화면 이미지/문구 편집 도구 표시",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "PNG 불러오기",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "JPEG 불러오기",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "지원하지 않는 파일 거부 + 기존 작업 유지",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "문구 위치 즉시 반영",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "문구 크기 즉시 반영",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "문구 색 즉시 반영",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "1:1 Canvas 크기",
+      "status": "PASS",
+      "detail": "[1080, 1080] vs (1080, 1080)"
+    },
+    {
+      "name": "1:1 미리보기/PNG 픽셀 일치",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "4:5 Canvas 크기",
+      "status": "PASS",
+      "detail": "[1080, 1350] vs (1080, 1350)"
+    },
+    {
+      "name": "4:5 미리보기/PNG 픽셀 일치",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "9:16 Canvas 크기",
+      "status": "PASS",
+      "detail": "[1080, 1920] vs (1080, 1920)"
+    },
+    {
+      "name": "9:16 미리보기/PNG 픽셀 일치",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "극단 입력: 긴 한글",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "극단 입력: 공백 없는 영문",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "극단 입력: 혼합 문자",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "극단 입력: 직접 줄바꿈",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "극단 입력: 이모지",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "극단 입력: 빈 문구",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "극단 입력: 세로 이미지",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "극단 입력: 가로 이미지",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "극단 입력: 투명 PNG",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "극단 입력: 매우 작은 이미지",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "템플릿 3개 생성",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "극단 입력: 120자 템플릿 이름",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "템플릿 불러오기",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "템플릿 수정",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "템플릿 삭제",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "새로고침 후 템플릿 유지",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "정상 JSON 복원",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "문법 손상 JSON 거부 + 기존 유지",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "필수 누락 JSON 거부 + 기존 유지",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "브라우저 페이지 오류 0건",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "공개 파일 비밀값 패턴 0건",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final-square.png 정상 열림",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final-square.png EXIF/GPS 0건",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final-feed.png 정상 열림",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final-feed.png EXIF/GPS 0건",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final-story.png 정상 열림",
+      "status": "PASS",
+      "detail": ""
+    },
+    {
+      "name": "final-story.png EXIF/GPS 0건",
+      "status": "PASS",
+      "detail": ""
+    }
+  ]
+}

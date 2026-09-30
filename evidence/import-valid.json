@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "app": "meme-card-studio",
+  "templates": [
+    {
+      "id": "sample-square",
+      "name": "정사각 카드",
+      "ratio": "1:1",
+      "text": "정상 JSON 복원 테스트",
+      "textX": 50,
+      "textY": 12,
+      "fontSize": 60,
+      "textColor": "#ffffff",
+      "textAlign": "center",
+      "sourceType": "own",
+      "sourceUrl": "",
+      "licenseText": "",
+      "createdAt": "2026-09-30T00:00:00.000Z",
+      "updatedAt": "2026-09-30T00:00:00.000Z"
+    },
+    {
+      "id": "sample-feed",
+      "name": "세로 피드",
+      "ratio": "4:5",
+      "text": "두 번째 템플릿",
+      "textX": 50,
+      "textY": 55,
+      "fontSize": 72,
+      "textColor": "#fff1a8",
+      "textAlign": "center",
+      "sourceType": "own",
+      "sourceUrl": "",
+      "licenseText": "",
+      "createdAt": "2026-09-30T00:00:00.000Z",
+      "updatedAt": "2026-09-30T00:00:00.000Z"
+    },
+    {
+      "id": "sample-story",
+      "name": "스토리 카드",
+      "ratio": "9:16",
+      "text": "세 번째 템플릿",
+      "textX": 50,
+      "textY": 72,
+      "fontSize": 84,
+      "textColor": "#ffffff",
+      "textAlign": "center",
+      "sourceType": "own",
+      "sourceUrl": "",
+      "licenseText": "",
+      "createdAt": "2026-09-30T00:00:00.000Z",
+      "updatedAt": "2026-09-30T00:00:00.000Z"
+    }
+  ]
+}
